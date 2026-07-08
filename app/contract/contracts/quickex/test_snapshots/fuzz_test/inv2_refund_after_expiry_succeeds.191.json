@@ -39,7 +39,7 @@
                   "address": "CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAITA4"
                 },
                 {
-                  "i128": "252338333"
+                  "i128": "80777901"
                 }
               ]
             }
@@ -61,18 +61,24 @@
                   "address": "CD3FXVGYSLQFFTW3UH6WFF2OKZH7VERGZJZAMJHTGHBWO4F6URWEJL23"
                 },
                 {
-                  "i128": "252338333"
+                  "i128": "80777901"
                 },
                 {
                   "address": "CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAITA4"
                 },
                 {
-                  "bytes": "491409cf486ad1c0c240a6329e6a417805398373dbb714264e01954697cba28b"
+                  "bytes": "7b827f87d2854b5dd3e8f556d66340d261ce90ca49ad4d7ff25c7e3c5b903bda"
                 },
                 {
-                  "u64": "492"
+                  "u64": "1531"
                 },
-                "void"
+                "void",
+                {
+                  "u64": "0"
+                },
+                {
+                  "u64": "18446744073709551615"
+                }
               ]
             }
           },
@@ -90,7 +96,7 @@
                       "address": "CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD2KM"
                     },
                     {
-                      "i128": "252338333"
+                      "i128": "80777901"
                     }
                   ]
                 }
@@ -111,10 +117,16 @@
               "function_name": "refund",
               "args": [
                 {
-                  "bytes": "669fd69576f88adff9c348b76c9cc061f8b9802677d83c1a75e487a5f0455eca"
+                  "bytes": "7807c2075fc07f5dc3035da7329901c6f70b81a33496ce36a083e8f6d3de43f0"
                 },
                 {
                   "address": "CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAITA4"
+                },
+                {
+                  "u64": "0"
+                },
+                {
+                  "u64": "18446744073709551615"
                 }
               ]
             }
@@ -127,7 +139,7 @@
   "ledger": {
     "protocol_version": 23,
     "sequence_number": 0,
-    "timestamp": 493,
+    "timestamp": 1532,
     "network_id": "0000000000000000000000000000000000000000000000000000000000000000",
     "base_reserve": 0,
     "min_persistent_entry_ttl": 4096,
@@ -280,10 +292,10 @@
             "key": {
               "vec": [
                 {
-                  "symbol": "Escrow"
+                  "symbol": "EscrowCore"
                 },
                 {
-                  "bytes": "669fd69576f88adff9c348b76c9cc061f8b9802677d83c1a75e487a5f0455eca"
+                  "bytes": "7807c2075fc07f5dc3035da7329901c6f70b81a33496ce36a083e8f6d3de43f0"
                 }
               ]
             },
@@ -300,10 +312,10 @@
                 "key": {
                   "vec": [
                     {
-                      "symbol": "Escrow"
+                      "symbol": "EscrowCore"
                     },
                     {
-                      "bytes": "669fd69576f88adff9c348b76c9cc061f8b9802677d83c1a75e487a5f0455eca"
+                      "bytes": "7807c2075fc07f5dc3035da7329901c6f70b81a33496ce36a083e8f6d3de43f0"
                     }
                   ]
                 },
@@ -315,7 +327,7 @@
                         "symbol": "amount_due"
                       },
                       "val": {
-                        "i128": "252338333"
+                        "i128": "80777901"
                       }
                     },
                     {
@@ -323,29 +335,7 @@
                         "symbol": "amount_paid"
                       },
                       "val": {
-                        "i128": "252338333"
-                      }
-                    },
-                    {
-                      "key": {
-                        "symbol": "arbiter"
-                      },
-                      "val": "void"
-                    },
-                    {
-                      "key": {
-                        "symbol": "arbiter_threshold"
-                      },
-                      "val": {
-                        "u32": 0
-                      }
-                    },
-                    {
-                      "key": {
-                        "symbol": "arbiters"
-                      },
-                      "val": {
-                        "vec": []
+                        "i128": "80777901"
                       }
                     },
                     {
@@ -361,7 +351,7 @@
                         "symbol": "expires_at"
                       },
                       "val": {
-                        "u64": "492"
+                        "u64": "1531"
                       }
                     },
                     {
@@ -411,7 +401,7 @@
                   "symbol": "EscrowIdMap"
                 },
                 {
-                  "bytes": "afd9f4cb9644f204e7ee79600fc314e6e694720213a594f08a8bc9cb8632368b"
+                  "bytes": "e77dbc3ce6324310f87caf33ce8a4b728e72ef27da5758089984502412637f11"
                 }
               ]
             },
@@ -431,13 +421,13 @@
                       "symbol": "EscrowIdMap"
                     },
                     {
-                      "bytes": "afd9f4cb9644f204e7ee79600fc314e6e694720213a594f08a8bc9cb8632368b"
+                      "bytes": "e77dbc3ce6324310f87caf33ce8a4b728e72ef27da5758089984502412637f11"
                     }
                   ]
                 },
                 "durability": "persistent",
                 "val": {
-                  "bytes": "669fd69576f88adff9c348b76c9cc061f8b9802677d83c1a75e487a5f0455eca"
+                  "bytes": "7807c2075fc07f5dc3035da7329901c6f70b81a33496ce36a083e8f6d3de43f0"
                 }
               }
             },
@@ -600,6 +590,136 @@
             "ext": "v0"
           },
           4095
+        ]
+      ],
+      [
+        {
+          "contract_data": {
+            "contract": "CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD2KM",
+            "key": {
+              "vec": [
+                {
+                  "symbol": "Used"
+                },
+                {
+                  "address": "CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAITA4"
+                },
+                {
+                  "u64": "0"
+                },
+                {
+                  "vec": [
+                    {
+                      "symbol": "Deposit"
+                    }
+                  ]
+                }
+              ]
+            },
+            "durability": "persistent"
+          }
+        },
+        [
+          {
+            "last_modified_ledger_seq": 0,
+            "data": {
+              "contract_data": {
+                "ext": "v0",
+                "contract": "CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD2KM",
+                "key": {
+                  "vec": [
+                    {
+                      "symbol": "Used"
+                    },
+                    {
+                      "address": "CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAITA4"
+                    },
+                    {
+                      "u64": "0"
+                    },
+                    {
+                      "vec": [
+                        {
+                          "symbol": "Deposit"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "durability": "persistent",
+                "val": {
+                  "bool": true
+                }
+              }
+            },
+            "ext": "v0"
+          },
+          3110400
+        ]
+      ],
+      [
+        {
+          "contract_data": {
+            "contract": "CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD2KM",
+            "key": {
+              "vec": [
+                {
+                  "symbol": "Used"
+                },
+                {
+                  "address": "CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAITA4"
+                },
+                {
+                  "u64": "0"
+                },
+                {
+                  "vec": [
+                    {
+                      "symbol": "Refund"
+                    }
+                  ]
+                }
+              ]
+            },
+            "durability": "persistent"
+          }
+        },
+        [
+          {
+            "last_modified_ledger_seq": 0,
+            "data": {
+              "contract_data": {
+                "ext": "v0",
+                "contract": "CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD2KM",
+                "key": {
+                  "vec": [
+                    {
+                      "symbol": "Used"
+                    },
+                    {
+                      "address": "CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAITA4"
+                    },
+                    {
+                      "u64": "0"
+                    },
+                    {
+                      "vec": [
+                        {
+                          "symbol": "Refund"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "durability": "persistent",
+                "val": {
+                  "bool": true
+                }
+              }
+            },
+            "ext": "v0"
+          },
+          3110400
         ]
       ],
       [
@@ -894,7 +1014,7 @@
                         "symbol": "amount"
                       },
                       "val": {
-                        "i128": "252338333"
+                        "i128": "80777901"
                       }
                     },
                     {
@@ -1080,7 +1200,7 @@
               }
             ],
             "data": {
-              "i128": "252338333"
+              "i128": "80777901"
             }
           }
         }
@@ -1102,7 +1222,7 @@
                 "symbol": "EscrowRefunded"
               },
               {
-                "bytes": "669fd69576f88adff9c348b76c9cc061f8b9802677d83c1a75e487a5f0455eca"
+                "bytes": "7807c2075fc07f5dc3035da7329901c6f70b81a33496ce36a083e8f6d3de43f0"
               },
               {
                 "address": "CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAITA4"
@@ -1115,7 +1235,7 @@
                     "symbol": "amount"
                   },
                   "val": {
-                    "i128": "252338333"
+                    "i128": "80777901"
                   }
                 },
                 {
@@ -1131,7 +1251,7 @@
                     "symbol": "timestamp"
                   },
                   "val": {
-                    "u64": "493"
+                    "u64": "1532"
                   }
                 },
                 {
