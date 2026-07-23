@@ -442,3 +442,16 @@ pub fn rotate_fee_collector(
     publish_fee_collector_rotated(env, new_collector, next_index);
     Ok(next_index)
 }
+
+/// Set a hook contract as approved or unapproved (**Admin only**).
+pub fn set_hook_approved(
+    env: &Env,
+    caller: &Address,
+    hook_contract: Address,
+    approved: bool,
+) -> Result<(), QuickexError> {
+    require_admin(env, caller)?;
+    storage::set_hook_approved(env, &hook_contract, approved);
+    crate::events::publish_hook_approved(env, hook_contract, approved);
+    Ok(())
+}

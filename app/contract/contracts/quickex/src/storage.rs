@@ -181,6 +181,8 @@ pub enum DataKey {
     OracleFeeConfig,
     /// Registered hook contract addresses.
     HookRegistry,
+    /// Approved hook contracts.
+    HookApproved(Address),
     /// Reentrancy guard to prevent callback-based reentry during hook execution.
     ReentrancyGuard,
     /// Boolean privacy flag per account.
@@ -817,6 +819,16 @@ pub fn set_registered_hooks(env: &Env, hooks: &Vec<Address>) {
     env.storage()
         .persistent()
         .set(&DataKey::HookRegistry, hooks);
+}
+
+pub fn is_hook_approved(env: &Env, hook_contract: &Address) -> bool {
+    let key = DataKey::HookApproved(hook_contract.clone());
+    env.storage().persistent().get(&key).unwrap_or(false)
+}
+
+pub fn set_hook_approved(env: &Env, hook_contract: &Address, approved: bool) {
+    let key = DataKey::HookApproved(hook_contract.clone());
+    env.storage().persistent().set(&key, &approved);
 }
 
 pub fn get_reentrancy_guard(env: &Env) -> bool {

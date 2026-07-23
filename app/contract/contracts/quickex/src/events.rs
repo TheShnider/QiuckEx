@@ -258,6 +258,12 @@ pub const EVENT_SCHEMAS: &[EventSchema] = &[
         payload_keys: &["amount", "schema_version", "timestamp", "token"],
         schema_version: EVENT_SCHEMA_VERSION,
     },
+    EventSchema {
+        name: "HookApproved",
+        topics: &[EVENT_TOPIC_ADMIN, "HookApproved", "hook_contract"],
+        payload_keys: &["approved", "schema_version", "timestamp"],
+        schema_version: EVENT_SCHEMA_VERSION,
+    },
 ];
 
 #[allow(dead_code)]
@@ -1068,6 +1074,30 @@ pub(crate) fn publish_per_asset_fee_set(
         old_arbiter_bps,
         fee_bps,
         arbiter_bps,
+        schema_version: EVENT_SCHEMA_VERSION,
+        timestamp: env.ledger().timestamp(),
+    }
+    .publish(env);
+}
+
+#[contractevent(topics = ["TOPIC_ADMIN", "HookApproved"])]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct HookApprovedEvent {
+    #[topic]
+    pub hook_contract: Address,
+    pub approved: bool,
+    pub schema_version: u32,
+    pub timestamp: u64,
+}
+
+pub(crate) fn publish_hook_approved(
+    env: &Env,
+    hook_contract: Address,
+    approved: bool,
+) {
+    HookApprovedEvent {
+        hook_contract,
+        approved,
         schema_version: EVENT_SCHEMA_VERSION,
         timestamp: env.ledger().timestamp(),
     }

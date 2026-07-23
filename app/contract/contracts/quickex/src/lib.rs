@@ -24,6 +24,8 @@ mod fee_test;
 mod fuzz_test;
 mod hook;
 #[cfg(test)]
+mod hook_test;
+#[cfg(test)]
 mod metadata_test;
 pub mod nonce;
 #[cfg(test)]
@@ -958,6 +960,23 @@ impl QuickexContract {
     /// Get the list of registered hook contracts.
     pub fn get_registered_hooks(env: Env) -> Vec<Address> {
         hook::get_registered_hooks(&env)
+    }
+
+    /// Approve or disapprove a hook contract (**Admin only**).
+    pub fn set_hook_approved(
+        env: Env,
+        caller: Address,
+        hook_contract: Address,
+        approved: bool,
+    ) -> Result<(), QuickexError> {
+        pause_policy::require_admin_entry_allowed(&env)?;
+        hook::assert_not_reentrant(&env)?;
+        admin::set_hook_approved(&env, &caller, hook_contract, approved)
+    }
+
+    /// Check if a hook contract is approved.
+    pub fn is_hook_approved(env: Env, hook_contract: Address) -> bool {
+        storage::is_hook_approved(&env, &hook_contract)
     }
 
     /// Set the fee configuration (**Admin only**).

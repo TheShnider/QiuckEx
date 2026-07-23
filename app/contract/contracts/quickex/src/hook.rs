@@ -2,6 +2,9 @@ use crate::{errors::QuickexError, storage, types::HookEventKind};
 use soroban_sdk::{Address, BytesN, Env, IntoVal, Symbol, Vec};
 
 pub fn register_hook(env: &Env, hook_contract: Address) -> Result<(), QuickexError> {
+    if !storage::is_hook_approved(env, &hook_contract) {
+        return Err(QuickexError::HookNotApproved);
+    }
     let mut hooks = storage::get_registered_hooks(env);
     if hooks.contains(hook_contract.clone()) {
         return Err(QuickexError::HookAlreadyRegistered);
@@ -56,6 +59,9 @@ pub fn invoke_hooks(
     storage::set_reentrancy_guard(env, &true);
     let hooks = storage::get_registered_hooks(env);
     for hook in hooks {
+        if !storage::is_hook_approved(env, &hook) {
+            continue;
+        }
         let args = soroban_sdk::vec![
             env,
             (event_kind as u32).into_val(env),
